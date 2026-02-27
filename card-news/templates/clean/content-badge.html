@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1080px; height: 1350px;
+    overflow: hidden;
+    font-family: 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+    background: #F0F0F0;
+    position: relative;
+  }
+  .brand-mark { display: flex; align-items: center; gap: 10px; }
+  .brand-dot { width: 18px; height: 18px; border-radius: 50%; background: {{accent_color}}; flex-shrink: 0; }
+  .brand-name { font-size: 28px; font-weight: 400; color: #9CA3AF; letter-spacing: -0.01em; }
+  .brand-top { position: absolute; top: 60px; left: 64px; }
+  .brand-bottom { position: absolute; bottom: 60px; left: 64px; }
+  .content-area {
+    position: absolute;
+    top: 50%; left: 64px; right: 64px;
+    transform: translateY(-50%);
+  }
+  .badge {
+    display: inline-block;
+    background: {{accent_color}};
+    color: #FFFFFF;
+    font-size: 32px; font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 100px;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+  }
+  .headline {
+    font-size: 96px; font-weight: 900;
+    color: #1A1A1A;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .accent-line {
+    width: 80px; height: 4px;
+    background: {{accent_color}};
+    margin: 40px 0;
+  }
+  .body {
+    font-size: 36px; font-weight: 400;
+    color: #4B5563; line-height: 1.65;
+  }
+  .subtext {
+    font-size: 30px; font-weight: 400;
+    color: #9CA3AF; margin-top: 24px;
+  }
+  .highlight {
+    background: linear-gradient(to top, {{accent_color}}66 45%, transparent 45%);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="brand-top brand-mark">
+    <div class="brand-dot"></div>
+    <span class="brand-name">@{{account_name}}</span>
+  </div>
+
+  <div class="content-area">
+    <div class="badge">{{badge_text}}</div>
+    <div class="headline">{{headline}}</div>
+    <div class="accent-line"></div>
+    <div class="body">{{body}}</div>
+    <div class="subtext">{{subtext}}</div>
+  </div>
+
+  <div class="brand-bottom brand-mark">
+    <div class="brand-dot"></div>
+    <span class="brand-name">@{{account_name}}</span>
+  </div>
+</body>
+</html>

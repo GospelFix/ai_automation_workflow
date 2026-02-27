@@ -1,0 +1,22 @@
+{
+  "version": "3.0",
+  "defaults": {
+    "template": "clean",
+    "accent_color": "#8BC34A",
+    "account_name": "my_account",
+    "slide_count": 7
+  },
+  "templates": {
+    "clean": {
+      "description": "클린 에디토리얼 스타일 라이트그레이 + 그린 하이라이트",
+      "accent_color": "#8BC34A",
+      "background": "light-gray"
+    }
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 1350
+  },
+  "output_dir": "output",
+  "workspace_dir": "workspace"
+}
