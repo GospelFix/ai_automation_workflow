@@ -1,0 +1,117 @@
+// package.json
+{
+  "name": "gospel-fix-automation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:setup": "ts-node scripts/setup-db.ts",
+    "db:seed": "ts-node scripts/seed-data.ts"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "typescript": "^5.0.0",
+    "openai": "^4.52.0",
+    "googleapis": "^118.0.0",
+    "mysql2": "^3.6.0",
+    "dotenv": "^16.3.1",
+    "csv-parser": "^3.0.0",
+    "node-cron": "^3.0.2",
+    "axios": "^1.6.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/csv-parser": "^1.1.0",
+    "@types/uuid": "^9.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.3.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
+
+// ============================================
+
+// next.config.ts
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    serverComponentsExternalPackages: ['mysql2'],
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
+  },
+  // API 라우트 제한 시간 조정
+  api: {
+    responseLimit: '50mb',
+    bodyParser: {
+      sizeLimit: '50mb',
+    },
+  },
+};
+
+export default nextConfig;
+
+// ============================================
+
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
+
+// ============================================
+
+// .env.local (예시)
+# OpenAI API
+OPENAI_API_KEY=sk-your-api-key-here
+
+# Gmail OAuth
+GMAIL_CLIENT_ID=your-client-id.apps.googleusercontent.com
+GMAIL_CLIENT_SECRET=your-client-secret
+GMAIL_REDIRECT_URI=http://localhost:3000/api/auth/callback
+
+# MySQL Database
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your-password
+DB_NAME=gospel_fix_automation
+DB_PORT=3306
+
+# Environment
+NEXT_PUBLIC_API_URL=http://localhost:3000
+NODE_ENV=development
+
+# Optional: Logging
+LOG_LEVEL=debug

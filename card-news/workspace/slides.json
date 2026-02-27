@@ -1,0 +1,57 @@
+[
+  {
+    "slide": 1,
+    "type": "cover",
+    "headline": "728조원 예산 중<br><span class='highlight'>당신이 받을 수 있는 것</span>은?",
+    "subtext": "신청하지 않으면 0원입니다",
+    "headline_label": "2025 정부 지원금"
+  },
+  {
+    "slide": 2,
+    "type": "content-badge",
+    "badge_text": "2025 핵심",
+    "headline": "전 국민 대상<br><span class='highlight'>민생회복 소비쿠폰</span>",
+    "body": "1차 15만원 지급<br>소득 하위 90% 2차 10만원",
+    "subtext": "최대 55만원까지 지급"
+  },
+  {
+    "slide": 3,
+    "type": "content-list",
+    "headline": "놓치면 안 되는<br><span class='highlight'>TOP 5 지원금</span>",
+    "item1": "근로장려금 최대 330만원",
+    "item2": "청년도약계좌 만기 5,000만원",
+    "item3": "청년월세 지원 최대 480만원",
+    "item4": "소상공인 크레딧 50만원",
+    "item5": "첫만남 이용권 최대 300만원"
+  },
+  {
+    "slide": 4,
+    "type": "content-steps",
+    "headline": "스마트한<br><span class='highlight'>신청 3단계</span>",
+    "step1": "정부24 로그인<br>보조금24에서 확인",
+    "step2": "복지로 접속<br>대상 확인 후 신청",
+    "step3": "주민센터 문의<br>추가 지원 확인",
+    "body": ""
+  },
+  {
+    "slide": 5,
+    "type": "content-stat",
+    "headline": "2026년 복지 예산",
+    "emphasis": "269.1조원",
+    "body": "전년 대비 20.4조원 증가<br>역대 최대 규모"
+  },
+  {
+    "slide": 6,
+    "type": "content-highlight",
+    "headline": "이것만은 꼭 기억하세요",
+    "emphasis": "신청하지 않으면 0원",
+    "body": "자격이 되어도<br>신청 안 하면 못 받습니다<br>정기적으로 보조금24에서 본인 자격 확인",
+    "subtext": "신청 기간 엄수 필수"
+  },
+  {
+    "slide": 7,
+    "type": "cta",
+    "headline": "지금 바로<br>내 혜택 확인하기",
+    "cta_text": "보조금24 접속하기"
+  }
+]
