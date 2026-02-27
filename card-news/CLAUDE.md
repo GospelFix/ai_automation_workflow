@@ -1,6 +1,13 @@
-# Instagram 카드뉴스 생성 프로젝트
+---
+name: main
+description: Claude Code에서 `/main`을 입력하면 Instagram 카드뉴스 프로젝트 전체가 자동 세팅됩니다.
+updated: 2026-02-27
+model: sonnet
+---
 
 > **v5.2** — 14종 슬라이드 타입 + 8종 템플릿 스타일 + 팀 토론 파이프라인
+
+> **참고**: 이 파일의 모든 규칙 및 가이드라인은 `.claude/commands/develop.md`를 기준으로 합니다.
 
 ## 프로젝트 개요
 
@@ -77,6 +84,7 @@ Claude Code가 오케스트레이터 역할을 하며, 리서치 → **리서치
 | 보완 리서처 | general-purpose | sonnet | 빠진 핵심 정보 보완, 다른 소스로 교차 검증, 추가 인사이트 제안 |
 
 **실행 흐름**:
+
 1. `workspace/research.md`를 두 에이전트에게 동시에 전달
 2. **팩트체커**: 각 통계/수치에 대해 웹 검색으로 출처 확인, 정확도를 `확인됨/미확인/수정필요`로 분류
 3. **보완 리서처**: 주제에 대해 독립적으로 웹 검색 수행, 기존 리서치에 없는 중요 정보 식별
@@ -95,6 +103,7 @@ Claude Code가 오케스트레이터 역할을 하며, 리서치 → **리서치
 > ⚠️ **실험적 기능**: `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` 환경변수 필요
 
 **CLI 명령어**:
+
 ```bash
 claude --agents fact-checker,supplementary-researcher \
   "workspace/research.md를 읽고 리서치 품질을 검증하세요. \
@@ -265,6 +274,7 @@ claude --agents fact-checker,supplementary-researcher \
 | 카피 에디터 | general-purpose | sonnet | 문장 완성도, 톤 일관성, 글자수 적정성, 슬라이드 간 흐름 평가         |
 
 **실행 흐름**:
+
 1. `workspace/slides.json`을 두 에이전트에게 동시에 전달
 2. **후킹 전문가** 평가 기준:
    - 커버 헤드라인: "이걸 왜 봐야 하지?"에 3초 안에 답하는가
@@ -294,6 +304,7 @@ claude --agents fact-checker,supplementary-researcher \
 CLI를 통해 여러 에이전트가 **실시간으로 대화하며** 합의점을 찾습니다.
 
 **CLI 명령어**:
+
 ```bash
 claude --agents hook-expert,copy-editor \
   "workspace/slides.json을 읽고 카피 품질을 토론하여 검증하세요. \
@@ -302,6 +313,7 @@ claude --agents hook-expert,copy-editor \
 ```
 
 **실행 흐름**:
+
 1. tmux split 화면으로 2명의 에이전트가 동시 실행
 2. 각 에이전트가 `workspace/slides.json` 읽고 독립 평가
 3. 인터랙티브 대화로 서로의 의견 교환
@@ -311,6 +323,7 @@ claude --agents hook-expert,copy-editor \
 **단점**: 수동 실행 필요, 토큰 비용 증가, 타이밍 제어 어려움
 
 **언제 사용할까?**:
+
 - 중요한 프로젝트로 최고 품질 필요 시
 - 에이전트 간 의견 충돌이 예상될 때
 - 토론 과정을 직접 관찰하고 싶을 때
@@ -518,6 +531,7 @@ cat ~/.config/claude-code/settings.json | grep AGENT_TEAMS
 ```
 
 출력:
+
 ```json
 "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
 ```
@@ -584,15 +598,15 @@ claude --agents hook-expert,copy-editor \
 
 ### Task 병렬 vs Agent Teams
 
-| 특성         | Task 병렬 실행 (기본)            | Agent Teams (고급)                 |
-| ------------ | -------------------------------- | ---------------------------------- |
-| **자동화**   | ✅ 완전 자동                     | ❌ 수동 CLI 실행                   |
-| **실시간**   | ❌ 순차 평가 후 종합             | ✅ 실시간 대화                     |
-| **합의**     | 오케스트레이터가 결정            | 에이전트들이 직접 합의             |
-| **가시성**   | 로그로 확인                      | tmux split 실시간 모니터링         |
-| **비용**     | 낮음 (순차 실행)                 | 높음 (동시 실행)                   |
-| **안정성**   | ✅ 높음                          | ⚠️ 중간 (실험적 기능)             |
-| **추천 용도** | 일상적인 카드뉴스 생성           | 중요 프로젝트, 토론 과정 관찰 필요 |
+| 특성          | Task 병렬 실행 (기본)  | Agent Teams (고급)                 |
+| ------------- | ---------------------- | ---------------------------------- |
+| **자동화**    | ✅ 완전 자동           | ❌ 수동 CLI 실행                   |
+| **실시간**    | ❌ 순차 평가 후 종합   | ✅ 실시간 대화                     |
+| **합의**      | 오케스트레이터가 결정  | 에이전트들이 직접 합의             |
+| **가시성**    | 로그로 확인            | tmux split 실시간 모니터링         |
+| **비용**      | 낮음 (순차 실행)       | 높음 (동시 실행)                   |
+| **안정성**    | ✅ 높음                | ⚠️ 중간 (실험적 기능)              |
+| **추천 용도** | 일상적인 카드뉴스 생성 | 중요 프로젝트, 토론 과정 관찰 필요 |
 
 ---
 
