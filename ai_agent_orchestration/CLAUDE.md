@@ -12,13 +12,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # 파이프라인 실행 (메인 진입점)
-npx ts-node src/pipeline.ts "프로젝트 요구사항 자연어 입력"
+yarn ts-node src/pipeline.ts "프로젝트 요구사항 자연어 입력"
 
 # TypeScript 컴파일 확인 (오류 없이 종료되면 정상)
-npx tsc --noEmit
+yarn tsc --noEmit
 
 # 빌드
-npm run build
+yarn build
 ```
 
 ## 환경 설정
