@@ -1,0 +1,22 @@
+{
+  "name": "ai-agent-orchestration",
+  "version": "1.0.0",
+  "description": "멀티 에이전트 파이프라인: PM → Designer → Dev → QA 자동화",
+  "main": "dist/pipeline.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/pipeline.ts",
+    "dev": "ts-node src/pipeline.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^16.4.5",
+    "openai": "^4.68.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
